@@ -1,10 +1,57 @@
-<h2>Welcome Visitor #{{ pagecount }}</h2>
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<div id="header"><div id="header-content">
+    <h1 id="logo">It Takes Two to Django</h1>
+    <h2 id="slogan">Welcome Visitor #{{ pagecount }}</h2>
+</div></div>
+
+<div id="content-wrap"><div id="content">
+    <div id="sidebar">
+        <div class="sidebox">
+				<h1>Wise Words</h1>
+			
+				<p>&quot;Our life is what our thoughts make it.&quot;</p>		
+			
+				<p class="align-right">~ Marcus Aurelius</p>
+				
+				<p>&quot;If you surrender to the wind, you can ride it.&quot;</p>
+				
+				<p class="align-right">~ Toni Morrison</p>
+			</div>
+    </div>
+    
+    <div id="main">
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+                <li><span><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></span></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+</div></div><!--end content-wrap-->
+
+<div id="footer"><div id="footer-content">
+    <div class="col float-left">
+        <h2>Site Partners</h2>
+			<ul>				
+				<li><a href="https://c9.io/fadein/"><strong>fadein</strong> - Erik Falor</a></li>
+				<li><a href="https://c9.io/vaibhavsahu/"><strong>vaibhavsahu</strong> - Vaibhav Sahu</a></li>
+				<li><a href="https://c9.io/kamnayadav/"><strong>kamnayadav</strong> - Kamna Yadav</a></li>	
+			</ul>
+    </div>
+    
+    <div class="col2 float-right">
+			<p>
+			&copy; copyright 2017 <strong>BC Games</strong><br /> 
+			Design by: <strong>Bryan Christensen</strong>&nbsp; &nbsp;
+			<ul>						
+				<li><a href="{% url 'polls:index' %}"><strong>Home</strong></a></li>
+				<li><a href="{% url 'polls:index' %}"><strong>Sitemap</strong></a></li>							
+			</ul>	
+		</div>
+</div></div><!--end footer-->

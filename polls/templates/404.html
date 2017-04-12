@@ -12,29 +12,20 @@
         <div class="sidebox">
 				<h1>Wise Words</h1>
 			
-				<p>&quot;In the end, we will remember not the words of our enemies, but the silence of our friends.&quot;</p>
-                
-                <p class="align-right">~ Martin Luther King Jr.</p>
+				<p>&quot;Our life is what our thoughts make it.&quot;</p>		
+			
+				<p class="align-right">~ Marcus Aurelius</p>
 				
-				<p>&quot;Revenge is a Poison meant for others, which we end up swallowing ourselves.&quot;</p>
+				<p>&quot;If you surrender to the wind, you can ride it.&quot;</p>
 				
-				<p class="align-right">~ Anonymous</p>
+				<p class="align-right">~ Toni Morrison</p>
 			</div>
     </div>
     
     <div id="main">
-        <h1>{{ question.question_text }}</h1>
-        
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-        <form action="{% url 'polls:vote' question.id %}" method="post">
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id }}" />
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-        {% endfor %}
-            <input class="button" type="submit" value="Respond" />
-        </form>
+        <h1>Error 404</h1>
+        <image src="{% static 'polls/404.jpg' %}" />
+        <h2>We couldn't find the page you are looking for.&nbsp;But don't worry, someone is working on it.</h2>
     </div>
 </div></div><!--end content-wrap-->
 
